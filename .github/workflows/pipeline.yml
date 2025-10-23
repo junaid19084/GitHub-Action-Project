@@ -7,7 +7,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Runner-1]
 
     steps:
     - uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
       run: mvn -B package --file pom.xml
       
   security-check:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Runner-1]
 
     steps:
     - uses: actions/checkout@v4
