@@ -27,12 +27,13 @@ jobs:
     - uses: actions/checkout@v4
     - name: Trivy Installation
       run: |
-       sudo apt-get update -y
-       sudo apt-get install -y wget
-       wget https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
-       chmod +x install.sh
-       ./install.sh
-       sudo mv trivy /usr/local/bin/
+        sudo apt-get update -y
+        sudo apt-get install -y wget
+        wget https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
+        chmod +x install.sh
+        ./install.sh
+        sudo mv ./bin/trivy /usr/local/bin/trivy
+        trivy --version
        
     - name: Trivy Fs Scan
       run: trivy fs --format table -o fs-report.json .
